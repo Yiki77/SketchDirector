@@ -2688,8 +2688,7 @@ onBeforeUnmount(() => {
         </div>
 
         <h2 class="overview-title">
-          TL;DR: SketchClaw is an automatic agentic framework for
-          text-guided multi-concept scene sketch generation.
+          TL;DR: Given a text description, SketchDirector constructs a multi-concept scene sketch: from individual object representations to spatially coherent compositions, enabling controllable scene construction and refinement.
         </h2>
 
       </section>
@@ -2720,7 +2719,7 @@ onBeforeUnmount(() => {
         <a
           class="more-results-button"
           :href="moreResultsUrl"
-          aria-label="View more SketchClaw results"
+          aria-label="View more results"
         >
           <span>More results</span>
 
