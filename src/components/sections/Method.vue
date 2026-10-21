@@ -50,35 +50,14 @@ import Refine from './Refine.vue'
 
 
           <h1 class="method-main-title">
-            Methodology
+            The Framework
           </h1>
 
 
           <p class="method-main-description">
-            SketchClaw follows a three-stage workflow that transforms
-            a scene-level textual description into an editable and structurally
-            coherent multi-concept scene sketch.
+            The goal of SketchDirector is to generate both draft and refined multi-concept scene sketches from textual descriptions, while preserving their coherence and editability.
           </p>
 
-
-          <div
-            class="method-stage-chips"
-            aria-label="SketchClaw workflow stages"
-          >
-
-            <span class="method-chip method-chip-orange">
-              Concept Representation
-            </span>
-
-            <span class="method-chip method-chip-green">
-              Agentic Reasoning
-            </span>
-
-            <span class="method-chip method-chip-purple">
-              Structure-aware Refinement
-            </span>
-
-          </div>
 
         </section>
 
@@ -133,7 +112,7 @@ import Refine from './Refine.vue'
         <div class="section-heading">
 
           <h2 class="section-heading-label">
-            Step 1: Concept Representation
+            Assets Generation
           </h2>
 
           <span class="section-heading-line" />
@@ -172,7 +151,7 @@ import Refine from './Refine.vue'
         <div class="section-heading">
 
           <h2 class="section-heading-label">
-            Step 2: Agentic Reasoning
+            Agentic Layout Reasoning
           </h2>
 
           <span class="section-heading-line" />
@@ -211,7 +190,7 @@ import Refine from './Refine.vue'
         <div class="section-heading">
 
           <h2 class="section-heading-label">
-            Step 3: Structure-aware Refinement
+            Detail Refinement
           </h2>
 
           <span class="section-heading-line" />
