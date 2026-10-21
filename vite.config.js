@@ -26,7 +26,7 @@ export default defineConfig({
   ],
 
   // GitHub Pages:
-  // https://xxx.github.io/SketchClaw/
+  // https://xxx.github.io/SketchDirector/
   base: '/SketchDirector/',
 
   resolve: {
