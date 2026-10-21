@@ -5,11 +5,11 @@ import {
 } from '@element-plus/icons-vue'
 
 // 项目名称
-const projectName = 'SketchClaw'
+const projectName = 'SketchDirector'
 
 // 论文标题
 const title =
-  'Agentic Multi-Concept Scene Sketching'
+  'Complex Sketching via Agentic Layout Reasoning and Detail Refinement'
 
 // 标题颜色
 const titleColor = '#3f3f3f'
@@ -20,7 +20,7 @@ const buttonColor = '#444444'
 // 作者清单
 const authors = [
   {
-    name: 'Authors anonymized',
+    name: 'Yiqi Liang and Xiaodong Cun*',
     homepage: '',
     icon: '',
     addressFlag: '',
@@ -46,7 +46,7 @@ const buttons = [
   {
     disabled: false,
     name: 'Paper',
-    link: './paper/_AAAI_27__SketchClaw.pdf',
+    link: './paper/_AAAI_27__SketchDirector.pdf',
     component: Document,
   },
   {
