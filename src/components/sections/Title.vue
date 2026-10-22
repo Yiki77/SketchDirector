@@ -57,7 +57,7 @@ const buttons = [
   {
     disabled: false,
     name: 'Paper',
-    link: './paper/_AAAI_27__SketchDirector.pdf',
+    link: './_AAAI_27__SketchDirector.pdf',
     component: Document,
   },
   {
