@@ -23,12 +23,44 @@ export default {
 </script>
 
 <template>
-  <Title/>
-  <Intro/>
-  <Method/>
-  <Comparison/>
-  <Layouts/>
-  <Ablation/>
-  <Limitations/>
-  <BibTeX/>
-</template>`${import.meta.env.BASE_URL}
+  <main id="top">
+
+    <!-- Overview -->
+    <div id="overview">
+      <Title />
+      <Intro />
+    </div>
+
+    <!-- Method -->
+    <section id="method">
+      <Method />
+    </section>
+
+    <!-- Results -->
+    <section id="results">
+      <Comparison />
+      <Layouts />
+      <Ablation />
+      <Limitations />
+    </section>
+
+    <!-- Dataset -->
+    <section id="dataset">
+      <BibTeX />
+    </section>
+
+  </main>
+</template>
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+#overview,
+#method,
+#results,
+#dataset {
+  scroll-margin-top: 24px;
+}
+</style>
