@@ -36,7 +36,15 @@ const addresses: Array<{
   homepage?: string
   icon?: string
   addressFlag?: string
-}> = []
+}> = [
+  {
+    name: 'GVC Lab, Great Bay University',
+    homepage: 'https://gvclab.github.io/',
+    icon: '',
+    addressFlag: '',
+  },
+]
+
 
 // 共一和通讯作者提示
 const correspondingAuthorText = ''
