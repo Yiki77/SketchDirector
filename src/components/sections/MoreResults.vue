@@ -2756,8 +2756,7 @@ onBeforeUnmount(() => {
             </span>
 
             <span>
-              Click and move any object below to explore different
-              compositions and spark new ideas.
+              Click and drag individual objects to experience object-level sketch editing.
             </span>
           </p>
 
@@ -3458,7 +3457,7 @@ onBeforeUnmount(() => {
 .gallery-interaction-icon {
   flex-shrink: 0;
   color: #e58b43;
-  font-size: 15px;
+  font-size: 30px;
   line-height: 1;
 }
 
@@ -3579,7 +3578,7 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 8px;
   color: #252525;
-  font-size: 18px;
+  font-size: 2px;
   font-weight: 650;
 }
 
@@ -4015,7 +4014,7 @@ onBeforeUnmount(() => {
 
 .selection-label {
   color: #777a80;
-  font-size: 9px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -4027,7 +4026,7 @@ onBeforeUnmount(() => {
   margin-top: 0;
   overflow: hidden;
   color: #2f3237;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 650;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -4102,8 +4101,8 @@ onBeforeUnmount(() => {
   }
 
   .gallery-interaction-icon {
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
   }
 
   .selection-name {
@@ -4268,6 +4267,184 @@ onBeforeUnmount(() => {
   background: #ffffff !important;
 
   border-color: #d8d8d8 !important;
+}
+
+
+/* ============================================================
+   SketchDirector visual refresh — CSS-only overrides
+   The template, text, data and SVG interaction logic remain unchanged.
+   ============================================================ */
+.more-results-page {
+  padding: 58px 20px 88px;
+  background: #faf9f7;
+  color: #191d20;
+  font-family: Inter, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Override Element Plus responsive 12/24 column widths without editing the template. */
+.more-results-page > .el-row > .el-col {
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 1490px;
+  padding: 0 20px;
+  margin: 0 auto;
+  min-width: 0;
+}
+.more-results-header {
+  width: 100%;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+.back-link {
+  display: inline-flex;
+  margin: 0 0 24px;
+  padding: 8px 14px;
+  border: 1px solid #e3e1df;
+  border-radius: 999px;
+  background: #fff;
+  color: #555b60;
+  font-weight: 600;
+}
+.back-link:hover { color: #7769cb; border-color: #bdb5e9; }
+.more-results-title {
+  margin: 0 0 17px;
+  color: #191d20;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 750;
+  letter-spacing: -.035em;
+  line-height: 1.2;
+  text-align: center;
+}
+.more-results-description {
+  width: 100%;
+  margin: 0 auto 20px;
+  color: #62666a;
+  font-size: clamp(30px, 1.5vw, 19px);
+  line-height: 1.75;
+  text-align: center;
+}
+.gallery-interaction-tip,
+.gallery-interaction-icon { color: #7769cb; }
+.gallery-interaction-tip {
+  justify-content: center;
+  max-width: 100%;
+  margin: 0 auto;
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+}
+.gallery-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 42px 24px;
+  width: 100%;
+  margin: 0 auto 50px;
+}
+.gallery-item {
+  --gallery-accent: #7769cb;
+  --gallery-accent-soft: rgba(119, 105, 203, .09);
+}
+.gallery-info { margin-bottom: 12px; padding: 0; }
+.gallery-caption {
+  min-height: 71px;
+  color: #555b60;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+}
+.gallery-caption:focus-visible { outline-color: #7769cb; }
+.gallery-card {
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+  box-shadow: none;
+  background: #fff;
+}
+.gallery-card::before { display: none; }
+.gallery-card:hover {
+  border-color: #c7c0e8;
+  box-shadow: 0 5px 18px rgba(35, 30, 65, .065);
+  transform: translateY(-2px);
+}
+.detail-stage { background: #fff !important; }
+.detail-label {
+  border-color: #e1e1e1;
+  background: rgba(255,255,255,.95);
+  color: #62666a;
+}
+.object-toolbar {
+  gap: 11px;
+  padding: 12px 13px 13px;
+  border-top: 1px solid #ededed;
+  background: #f8f8f8;
+}
+.selection-label { color: #77797f; }
+.selection-name { color: #30343a; }
+.toolbar-actions { gap: 6px; }
+.toolbar-actions :deep(.el-button--small.is-circle) {
+  width: 31px;
+  height: 31px;
+  border-color: #dedede;
+  background: #fff;
+}
+.toolbar-actions :deep(.el-button--small.is-circle:hover:not(.is-disabled)) {
+  color: #7769cb;
+  border-color: #aaa1df;
+}
+.page-state { color: #62666a; }
+@media (max-width: 991px) {
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 20px; }
+}
+@media (max-width: 767px) {
+  .more-results-page { padding: 36px 0 55px; }
+  .more-results-page > .el-row > .el-col { padding: 0 16px; }
+  .more-results-header { margin-bottom: 32px; }
+  .more-results-title { font-size: 30px; }
+  .more-results-description { font-size: 20px; }
+  .gallery-interaction-tip { font-size: 20px; }
+}
+@media (max-width: 600px) {
+  .gallery-grid { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  .gallery-caption { min-height: auto; margin-bottom: 8px; }
+  .gallery-item { max-width: 480px; margin: 0 auto; }
+}
+
+
+/* Typography adjustments: Back control and per-example prompts */
+.back-link {
+  gap: 12px;
+  padding: 12px 21px;
+  font-size: 20px;
+  line-height: 1.15;
+  font-weight: 650;
+}
+.back-link > span:first-child {
+  font-size: 29px;
+  line-height: 0.85;
+  font-family: Arial, sans-serif;
+}
+.gallery-caption,
+.gallery-caption-empty {
+  font-family: "Times New Roman", Times, serif;
+}
+/* The Element Plus tooltip is teleported outside this component. */
+:global(.intro-caption-tooltip),
+:global(.intro-caption-tooltip.el-popper) {
+  font-family: "Times New Roman", Times, serif;
+}
+
+
+/* Match homepage example-caption typography (23px) */
+.gallery-caption,
+.gallery-caption-empty {
+  /* font-family: "Times New Roman", Times, serif; */
+  font-size: 23px;
+  font-style: normal;
+  line-height: 1.55;
+}
+:global(.intro-caption-tooltip),
+:global(.intro-caption-tooltip.el-popper) {
+  /* font-family: "Times New Roman", Times, serif; */
+  font-size: 23px;
+  line-height: 1.55;
 }
 
 </style>

@@ -1,63 +1,78 @@
 <script setup lang="ts">
 
 import Page from '../mds/how_work.mdx'
+
 import Reasoning from './Reasoning.vue'
+
 import Concept from './Concept.vue'
+
 import Refine from './Refine.vue'
 
 </script>
-
 
 <template>
 
   <div class="how-work-section">
 
-
     <el-divider />
 
+    
 
-    <!-- ====================================================== -->
-    <!-- Main method highlight -->
-    <!-- ====================================================== -->
+    
+
+    
 
     <el-row justify="center">
 
       <el-col
+
         :xs="24"
-        :sm="20"
-        :md="16"
-        :lg="12"
-        :xl="12"
+
+        :sm="24"
+
+        :md="24"
+
+        :lg="24"
+
+        :xl="24"
+
       >
 
         <section class="method-highlight">
 
           <div
+
             class="method-kicker"
+
             aria-hidden="true"
+
           >
 
             <span class="method-kicker-colors">
 
               <i class="method-kicker-color method-kicker-orange" />
+
               <i class="method-kicker-color method-kicker-yellow" />
+
               <i class="method-kicker-color method-kicker-green" />
+
               <i class="method-kicker-color method-kicker-purple" />
 
             </span>
 
           </div>
 
-
           <h1 class="method-main-title">
+
             The Framework
+
           </h1>
 
-
           <p class="method-main-description">
-            The goal of SketchDirector is to generate both draft and refined multi-concept scene sketches from textual descriptions, while preserving their coherence and editability.
-          </p>
 
+            The goal of SketchDirector is to generate editable multiconcept scene sketches from textual descriptions.
+
+          </p>
 
         </section>
 
@@ -65,19 +80,26 @@ import Refine from './Refine.vue'
 
     </el-row>
 
+    
 
-    <!-- ====================================================== -->
-    <!-- Overview -->
-    <!-- ====================================================== -->
+    
+
+    
 
     <el-row justify="center">
 
       <el-col
+
         :xs="24"
-        :sm="20"
-        :md="16"
-        :lg="12"
-        :xl="12"
+
+        :sm="24"
+
+        :md="24"
+
+        :lg="24"
+
+        :xl="24"
+
       >
 
         <section class="method-section overview-section">
@@ -94,25 +116,34 @@ import Refine from './Refine.vue'
 
     </el-row>
 
+    
 
-    <!-- ====================================================== -->
-    <!-- Concept Representation -->
-    <!-- ====================================================== -->
+    
+
+    
 
     <el-row justify="center">
 
       <el-col
+
         :xs="24"
-        :sm="20"
-        :md="16"
-        :lg="12"
-        :xl="12"
+
+        :sm="24"
+
+        :md="24"
+
+        :lg="24"
+
+        :xl="24"
+
       >
 
         <div class="section-heading">
 
           <h2 class="section-heading-label">
-            Assets Generation
+
+            Asset Generation
+
           </h2>
 
           <span class="section-heading-line" />
@@ -122,36 +153,47 @@ import Refine from './Refine.vue'
       </el-col>
 
     </el-row>
-
 
     <div class="stage-content">
 
       <Concept
+
         embedded
+
         :show-title="false"
+
       />
 
     </div>
 
+    
 
-    <!-- ====================================================== -->
-    <!-- Agentic Reasoning -->
-    <!-- ====================================================== -->
+    
+
+    
 
     <el-row justify="center">
 
       <el-col
+
         :xs="24"
-        :sm="20"
-        :md="16"
-        :lg="12"
-        :xl="12"
+
+        :sm="24"
+
+        :md="24"
+
+        :lg="24"
+
+        :xl="24"
+
       >
 
         <div class="section-heading">
 
           <h2 class="section-heading-label">
+
             Agentic Layout Reasoning
+
           </h2>
 
           <span class="section-heading-line" />
@@ -161,36 +203,47 @@ import Refine from './Refine.vue'
       </el-col>
 
     </el-row>
-
 
     <div class="stage-content">
 
       <Reasoning
+
         embedded
+
         :show-title="false"
+
       />
 
     </div>
 
+    
 
-    <!-- ====================================================== -->
-    <!-- Structure-aware Refinement -->
-    <!-- ====================================================== -->
+    
+
+    
 
     <el-row justify="center">
 
       <el-col
+
         :xs="24"
-        :sm="20"
-        :md="16"
-        :lg="12"
-        :xl="12"
+
+        :sm="24"
+
+        :md="24"
+
+        :lg="24"
+
+        :xl="24"
+
       >
 
         <div class="section-heading">
 
           <h2 class="section-heading-label">
+
             Detail Refinement
+
           </h2>
 
           <span class="section-heading-line" />
@@ -201,384 +254,170 @@ import Refine from './Refine.vue'
 
     </el-row>
 
-
     <div class="stage-content">
 
       <Refine
+
         embedded
+
         :show-title="false"
+
       />
 
     </div>
-
 
   </div>
 
 </template>
 
-
 <style scoped>
-
-/* ============================================================
-   Section
-   ============================================================ */
+/* SketchDirector: clean academic project-page styling */
+.method-column {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
 
 .how-work-section {
   width: 100%;
-}
-
-
-/* ============================================================
-   Main highlight card
-   ============================================================ */
-
-.method-highlight {
-  position: relative;
-  width: 100%;
-  margin:
-    0
-    0
-    30px;
-  padding:
-    27px
-    30px
-    24px;
-  overflow: hidden;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 249, 238, 0.97),
-      rgba(248, 252, 244, 0.97) 48%,
-      rgba(249, 246, 255, 0.97)
-    );
-  border:
-    1px
-    solid
-    #e3e0db;
-  border-radius: 14px;
-  box-shadow:
-    0
-    6px
-    18px
-    rgba(35, 35, 35, 0.055);
+  padding: 72px 0 90px;
+  background: #faf9f7;
+  color: #191d20;
+  font-family: Inter, 'Helvetica Neue', Arial, sans-serif;
   box-sizing: border-box;
 }
-
-.method-highlight::after {
-  position: absolute;
-  right: -70px;
-  bottom: -95px;
-  width: 218px;
-  height: 218px;
-  background:
-    radial-gradient(
-      circle,
-      rgba(165, 138, 208, 0.12),
-      rgba(165, 138, 208, 0)
-    );
-  border-radius: 50%;
-  pointer-events: none;
-  content: '';
+.how-work-section :deep(.el-divider) {
+  max-width: 1120px;
+  margin: 0 auto 48px;
+  border-color: #e7e5e2;
 }
 
-.method-kicker {
-  display: flex;
-  align-items: center;
-  margin-bottom: 14px;
+.method-highlight {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto 48px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-align: center;
 }
 
-.method-kicker-colors {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.method-kicker-color {
-  display: block;
-  width: 29px;
-  height: 5px;
-  border-radius: 999px;
-}
-
-.method-kicker-orange {
-  background: #f39a54;
-}
-
-.method-kicker-yellow {
-  background: #e9c957;
-}
-
-.method-kicker-green {
-  background: #85bd74;
-}
-
-.method-kicker-purple {
-  background: #a58ad0;
-}
-
+/* Hide the previous rainbow decoration, retain its markup untouched. */
+.method-kicker { display: none; }
+.method-highlight::after { content: none; }
 .method-main-title {
-  position: relative;
-  z-index: 1;
-  margin:
-    0
-    0
-    8px;
-  color: #222;
-  font-size: 32px;
-  font-weight: 750;
-  line-height: 1.3;
-  text-align: left;
+  margin: 0 auto 20px;
+  color: #191d20;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  text-align: center;
 }
-
 .method-main-description {
-  position: relative;
-  z-index: 1;
-  max-width: 818px;
-  margin:
-    0
-    0
-    18px;
-  color: #333;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.7;
-  text-align: left;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  color: #62666a;
+  font-size: clamp(25px, 1.5vw, 19px);
+  font-weight: 400;
+  line-height: 1.75;
+  text-align: center;
 }
-
-
-/* Workflow chips */
-
 .method-stage-chips {
-  position: relative;
-  z-index: 1;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
   width: 100%;
 }
-
-.method-chip {
+.method-chip,
+.method-chip-orange,
+.method-chip-green,
+.method-chip-purple {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 0px;
-  padding:
-    5px
-    11px;
-  color: #303030;
-  font-size: 12px;
-  font-weight: 650;
-  line-height: 1.2;
-  border:
-    1px
-    solid
-    transparent;
+  padding: 9px 17px;
+  min-height: 38px;
+  background: #fff;
+  color: #33383c;
+  border: 1px solid #d9d9d7;
   border-radius: 999px;
-  box-sizing: border-box;
+  box-shadow: none;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
   white-space: nowrap;
+  box-sizing: border-box;
 }
-
-.method-chip-orange {
-  background: #fff0e5;
-  border-color: #f3b17f;
-}
-
-.method-chip-green {
-  background: #eaf7ed;
-  border-color: #9dccaa;
-}
-
-.method-chip-purple {
-  background: #f1ecfb;
-  border-color: #b7a2df;
-}
-
-
-/* ============================================================
-   Unified subsection headings
-   ============================================================ */
-
-.method-section {
+.method-section, .how-work-content, 
+.stage-content {
   width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
 }
-
 .overview-section {
-  margin-bottom: 40px;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto 60px;
 }
-
 .section-heading {
   display: flex;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
   width: 100%;
-  margin:
-    42px
-    0
-    18px;
-}
-
-.overview-section .section-heading {
-  margin-top: 0;
+  margin: 72px auto 30px;
 }
 
 .section-heading-label {
-  flex-shrink: 0;
   margin: 0;
-  padding:
-    6px
-    13px;
-  color: #222;
-  font-size: 18px;
+  padding: 0;
+  color: #191d20;
+  font-size: clamp(24px, 2.2vw, 32px);
   font-weight: 700;
-  line-height: 1.3;
-  background:
-    linear-gradient(
-      90deg,
-      #fff0e5,
-      #fff8d8,
-      #eaf7ed,
-      #f1ecfb
-    );
-  border-radius: 999px;
+  line-height: 1.35;
+  letter-spacing: -0.035em;
+  text-align: center;
+  background: none;
 }
 
 .section-heading-line {
-  width: 100%;
-  height: 1px;
-  background:
-    linear-gradient(
-      90deg,
-      #d9d9d9,
-      rgba(217, 217, 217, 0)
-    );
+  display: none;
 }
-
-
-/* ============================================================
-   Overview content
-   ============================================================ */
 
 .how-work-content {
   width: 100%;
 }
 
-.how-work-content :deep(p) {
-  margin:
-    0
-    0
-    16px;
-  color: #000;
-  font-size: 18px;
-  line-height: 1.8;
-  text-align: justify;
-}
-
-.how-work-content :deep(strong) {
-  font-weight: 650;
-}
-
 .how-work-content :deep(img) {
   display: block;
-  max-width: 100%;
-  height: auto;
-  margin:
-    18px
-    auto
-    0;
-}
-
-
-/* ============================================================
-   Embedded content
-   ============================================================ */
-
-.stage-content {
   width: 100%;
+  max-width: 1600px;
+  height: auto;
+  margin: 24px auto 0;
+  object-fit: contain;
 }
-
-
-/* ============================================================
-   Responsive
-   ============================================================ */
-
-@media (max-width: 767px) {
-
-  .method-highlight {
-    padding:
-      23px
-      18px
-      21px;
-  }
-
-  .method-main-title {
-    font-size: 27px;
-  }
-
-  .method-main-description {
-    font-size: 17px;
-    line-height: 1.65;
-  }
-
-  .method-stage-chips {
-    justify-content: flex-start;
-  }
-
-  .overview-section {
-    margin-bottom: 30px;
-  }
-
-  .section-heading {
-    gap: 10px;
-    margin:
-      34px
-      0
-      15px;
-  }
-
-  .overview-section .section-heading {
-    margin-top: 0;
-  }
-
-  .section-heading-label {
-    padding:
-      5px
-      11px;
-    font-size: 21px;
-  }
-
-  .how-work-content :deep(p) {
-    font-size: 17px;
-    text-align: left;
-  }
-
-}
-
+/* Preserve any inherited interactive guidance, but remove colored backgrounds. */
 .gallery-interaction-tip {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 10px;
   margin-top: 16px;
   padding: 12px 16px;
-  color: #7a4313;
-  font-size: 18px;
-  font-weight: 650;
+  color: #4b5053;
+  background: #fff;
+  border: 1px solid #e2e1de;
+  border-radius: 10px;
+  box-shadow: none;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 1.5;
-  text-align: left;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(255, 237, 215, 0.96),
-      rgba(255, 248, 218, 0.78)
-    );
-  border: 1px solid rgba(231, 157, 74, 0.38);
-  border-left: 4px solid #e89545;
-  border-radius: 9px;
-  box-shadow: 0 3px 10px rgba(150, 92, 31, 0.06);
 }
-
-
 .gallery-interaction-icon {
   display: inline-flex;
   align-items: center;
@@ -586,12 +425,22 @@ import Refine from './Refine.vue'
   flex-shrink: 0;
   width: 28px;
   height: 28px;
-  color: #a95c17;
-  font-size: 17px;
-  line-height: 1;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(221, 137, 54, 0.34);
+  color: #7769cb;
+  background: transparent;
+  border: 0;
   border-radius: 50%;
 }
+@media (max-width: 767px) {
+  .method-column {
+    padding: 0 16px;
+  }
 
+  .method-main-title {
+    font-size: 30px;
+  }
+
+  .section-heading {
+    margin: 48px auto 24px;
+  }
+}
 </style>

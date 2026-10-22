@@ -229,7 +229,7 @@ const showNextExample = () => {
     >
 
       <h1 class="section-title">
-        Step 1: Concept Representation
+        Asset Generation
       </h1>
 
     </el-row>
@@ -243,7 +243,7 @@ const showNextExample = () => {
     >
 
       <h2 class="concept-subtitle">
-        Step 1: Concept Representation
+        Asset Generation
       </h2>
 
     </el-row>
@@ -257,27 +257,23 @@ const showNextExample = () => {
 
       <el-col
         :xs="24"
-        :sm="20"
-        :md="16"
-        :lg="12"
-        :xl="12"
+        :sm="24"
+        :md="24"
+        :lg="24"
+        :xl="24"
+        class="concept-inner"
       >
-
-        <img
-          src="/concept.jpg"
-          alt="Concept representation overview"
-          class="concept-image"
-        />
-
 
         <p class="concept-desc">
 
-          We illustrate how SketchClaw transforms a textual scene description
-          into multiple independently editable concept assets, with each concept
-          represented as an individual SVG object.
-          This step allows the subsequent reasoning process to organize,
-          transform, and compose these assets separately on the canvas.
+          SketchDirector decomposes a scene description into individual visual concepts and generates a vector sketch draft for each object. Each draft is represented by cubic Bézier curves and maintained as an independent SVG asset, enabling flexible object-level manipulation and subsequent scene composition.
         </p>
+
+        <img
+          src="/asset_gen.jpg"
+          alt="Concept representation overview"
+          class="concept-image"
+        />
 
       </el-col>
 
@@ -290,6 +286,13 @@ const showNextExample = () => {
 
 <style scoped>
 
+.concept-inner {
+  width: 100%;
+  max-width: 1490px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
 /* ============================================================
    Section
    ============================================================ */
@@ -309,15 +312,14 @@ const showNextExample = () => {
    ============================================================ */
 
 .concept-desc {
-  margin-bottom: 28px;
-
-  color: #000;
-
-  font-size: 18px;
-
-  line-height: 1.8;
-
-  text-align: justify;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto 28px;
+  color: #62666a;
+  font-size: clamp(25px, 1.5vw, 19px);
+  font-weight: 400;
+  line-height: 1.75;
+  text-align: left;
 }
 
 
@@ -966,46 +968,14 @@ const showNextExample = () => {
 /* ============================================================
    Concept overview image
    ============================================================ */
-
 .concept-image {
-
   display: block;
-
   width: 100%;
-
+  max-width: 1600px;
   height: auto;
-
-  margin:
-    0
-    0
-    22px;
-
-  object-fit:
-    contain;
-
-  color-scheme:
-    only light;
-
-  forced-color-adjust:
-    none;
-
-  background:
-    #fff
-    !important;
-
-  filter:
-    none
-    !important;
-
-  mix-blend-mode:
-    normal
-    !important;
-
-  opacity:
-    1
-    !important;
-
-  isolation: isolate;
+  margin: 0 auto 30px;
+  object-fit: contain;
+  background: #fff;
 }
 
 
@@ -1301,5 +1271,13 @@ const showNextExample = () => {
     1
     !important;
 }
+@media (max-width: 767px) {
+  .concept-inner {
+    padding: 0 16px;
+  }
 
+  .concept-desc {
+    font-size: 25px;
+  }
+}
 </style>

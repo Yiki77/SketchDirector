@@ -2,29 +2,32 @@
 import {
   Document,
   Files,
+  Link,
 } from '@element-plus/icons-vue'
 
 // 项目名称
 const projectName = 'SketchDirector'
 
 // 论文标题
-const title =
-  'Complex Sketching via Agentic Layout Reasoning and Detail Refinement'
+const titleLead = 'Complex Sketching via'
+const titleHighlight = 'Agentic Layout Reasoning'
+const titleEnd = 'and Detail Refinement'
 
 // 标题颜色
-const titleColor = '#3f3f3f'
+const titleColor = '#191d20'
 
 // 按钮颜色
-const buttonColor = '#444444'
+const buttonColor = '#1d2327'
 
 // 作者清单
 const authors = [
   {
-    name: 'Yiqi Liang and Xiaodong Cun*',
+    name: 'Yiqi Liang',
     homepage: '',
     icon: '',
     addressFlag: '',
   },
+  { name: 'Xiaodong Cun*', homepage: '', icon: '', addressFlag: '' },
 ]
 
 // 地址清单
@@ -51,14 +54,13 @@ const buttons = [
   },
   {
     disabled: true,
-    name: 'Arxiv',
-    link:
-      'https://github.com/JunyaoHu/academic-project-page-template-vue',
-    component: Document,
+    name: 'Code',
+    link: '',
+    component: Link,
   },
   {
     disabled: true,
-    name: 'Code',
+    name: 'Dataset',
     link: '',
     component: Files,
   },
@@ -68,33 +70,12 @@ const buttons = [
 <template>
   <section class="title-section">
     <div class="title-content">
-      <!-- 主标题 -->
-      <el-row justify="center">
-        <el-col
-          :xs="24"
-          :sm="23"
-          :md="22"
-          :lg="22"
-          :xl="21"
-        >
-          <h1
-            class="paper-title"
-            :style="{ color: titleColor }"
-          >
-            <span class="sketch-title">
-              {{ projectName }}
-            </span>
+      <!-- 单一连续标题：项目名紫色，论文标题黑色，按宽度自然换行 -->
+      <h1 class="paper-heading">
+        <span class="heading-line"><span class="project-name">{{ projectName }}:</span> {{ titleLead }}</span>
+        <span class="heading-line">{{ titleHighlight }} {{ titleEnd }}</span>
+      </h1>
 
-            <span class="title-colon">
-              :
-            </span>
-
-            <span class="normal-title">
-              {{ title }}
-            </span>
-          </h1>
-        </el-col>
-      </el-row>
 
       <!-- 作者名单 -->
       <div class="author-list">
@@ -242,374 +223,109 @@ const buttons = [
           </span>
         </template>
       </div>
+
+      <!-- TL;DR -->
+     <section class="overview-card">
+
+        <h2 class="overview-title">
+          Given a scene description, SketchDirector generates editable multi-concept scene sketches by composing individual vector assets through agentic layout reasoning and progressively refining their details while preserving object structures and spatial relationships.
+          
+        </h2>
+
+      </section>
     </div>
   </section>
 </template>
 
 <style scoped>
-/* ============================================================
-   整体标题区域
-   ============================================================ */
-
+.overview-card { max-width: 1250px; margin: 65px auto 0px; padding: 0 0 0px; text-align: center; background: transparent; box-shadow: none;
+}
+.overview-title { margin:0; color:#202427; font-size:clamp(20px,2.1vw,30px); line-height:1.45; font-weight:600; letter-spacing:-.035em; }
 .title-section {
-  position: relative;
   width: 100%;
-  padding:
-    46px
-    0
-    28px;
-  overflow: hidden;
-  background: #fff;
+  background: #faf9f7;
+  padding: 28px 22px 48px;
   box-sizing: border-box;
 }
-
-.title-content {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-}
-
-/* ============================================================
-   主标题
-   ============================================================ */
-
-.paper-title {
-  display: block;
-  width: 100%;
-  max-width: 1420px;
-  margin:
-    0
-    auto;
-  font-family:
-    'MyFont',
-    Verdana,
-    Arial,
-    sans-serif;
-  font-size:
-    clamp(
-      31px,
-      3.05vw,
-      45px
-    );
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: 0.1px;
-  line-height: 1.28;
+.title-content { max-width: 1200px; margin: 0 auto; text-align: center; }
+.paper-heading {
+  max-width: 1160px;
+  margin: 0 auto;
+  font-family: Inter, 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(28px, 3.4vw, 58px);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.045em;
+  color: #191d20;
   text-align: center;
+  overflow-wrap: normal;
+  text-wrap: initial;
+}
+.heading-line { display: block; white-space: nowrap; }
+@media (max-width: 850px) {
+  .paper-heading { font-size: clamp(24px, 4.3vw, 36px); }
+  .heading-line { white-space: normal; }
+}
+.project-name {
+  color: #7769cb;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.heading-rest { color: #191d20; }
+.hero-description {
+  max-width: 920px;
+  margin: 26px auto 30px;
+  font: 400 clamp(16px, 1.7vw, 20px)/1.85 Inter, Arial, sans-serif;
+  color: #757a7d;
   text-wrap: balance;
 }
-
-/*
-  桌面端保持整句一行。
-  只有屏幕宽度不足时才允许自然换行。
-*/
-@media (min-width: 1100px) {
-  .paper-title {
-    white-space: nowrap;
-  }
-}
-
-/* SketchClaw 渐变草图字体 */
-.sketch-title {
-  display: inline;
-  font-family:
-    'Segoe Print',
-    'Bradley Hand',
-    'Comic Sans MS',
-    cursive;
-  font-size: 1.15em;
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: -1.2px;
-  background:
-    linear-gradient(
-      90deg,
-      #f39a54 0%,
-      #e9c957 34%,
-      #85bd74 66%,
-      #a58ad0 100%
-    );
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-}
-
-.title-colon {
-  display: inline;
-  margin-right: 5px;
-  font-family:
-    'MyFont',
-    Verdana,
-    Arial,
-    sans-serif;
-  font-size: 0.96em;
-  font-weight: 700;
-}
-
-.normal-title {
-  display: inline;
-  font-family:
-    'MyFont',
-    Verdana,
-    Arial,
-    sans-serif;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: 700;
-}
-
-/* ============================================================
-   作者和地址
-   ============================================================ */
-
-.author-list,
-.address-list {
+.hero-description strong { color: #33383b; font-weight: 700; }
+.author-list, .address-list {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  gap: 12px 24px;
 }
-
-.author-list {
-  gap: 10px;
-  margin-bottom: 7px;
-}
-
-.address-list {
-  gap:
-    8px
-    18px;
-  margin-top: 2px;
-}
-
-.author-link,
-.address-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #3d3d3d;
-  text-decoration: none;
-  transition:
-    color 0.18s ease,
-    transform 0.18s ease;
-}
-
-.author-link:hover,
-.address-link:hover {
-  color: #111;
-  transform: translateY(-1px);
-}
-
-.author-link-disabled {
-  cursor: default;
-}
-
-.author-link-disabled:hover {
-  color: #3d3d3d;
-  transform: none;
-}
-
-.author-name {
-  font-size: 19px;
-  font-weight: 500;
-  line-height: 1.5;
-}
-
-.address-name {
-  color: #555;
-  font-size: 17px;
-  line-height: 1.5;
-}
-
-.name-sup,
-.address-sup {
-  margin-left: 2px;
-  color: #777;
-  font-size: 0.72em;
-}
-
-.author-avatar,
-.address-avatar {
-  margin-right: 7px;
-}
-
-/* ============================================================
-   补充信息
-   ============================================================ */
-
-.corresponding-author {
-  margin: 13px 0 0;
-  color: #666;
-  font-family:
-    Arial,
-    sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  text-align: center;
-}
-
-.emphasis {
-  margin: 9px 0;
-  color: #8a6215;
-  font-size: 19px;
-  font-weight: 700;
-  text-align: center;
-}
-
-/* ============================================================
-   引导按钮
-   ============================================================ */
-
-.guidance-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 22px;
-}
-
-.guidance-link {
-  display: inline-flex;
-  color: inherit;
-  text-decoration: none;
-}
-
+.author-list { margin: 28px auto 35px;}
+.author-link, .address-link { color: #202428; text-decoration: none; }
+.author-link:not(:last-child)::after { content: '·'; position: relative; left: 13px; color: #c1c1c1; }
+.author-link:hover, .address-link:hover { color: #7769cb; }
+.author-link-disabled { cursor: default; }
+.author-link-disabled:hover { color: #202428; }
+.author-name { font-size: 30px; font-weight: 600; border-bottom: 1px solid #bdbdbd; padding-bottom: 3px; }
+.address-name { font-size: 25px; color: #555; }
+.name-sup, .address-sup { margin-left: 2px; font-size: .7em; color: #777; }
+.author-avatar, .address-avatar { margin-right: 7px; }
+.corresponding-author { margin: 12px 0; color: #777; font-size: 14px; }
+.emphasis { margin: 9px 0; font-weight: 700; }
+.guidance-row { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 13px; }
+.guidance-link { display: inline-flex; text-decoration: none; }
 .guidance-button {
-  min-width: 112px;
-  height: 42px;
-  padding:
-    0
-    19px;
-  border: 0;
-  box-shadow:
-    0
-    4px
-    12px
-    rgba(35, 35, 35, 0.13);
-  transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease;
-}
-
-.guidance-link:not(.guidance-link-disabled)
-.guidance-button:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0
-    7px
-    16px
-    rgba(35, 35, 35, 0.17);
-}
-
-.guidance-link-disabled {
-  cursor: not-allowed;
-}
-
-.guidance-button:disabled {
-  color: #8d8d8d;
-  background: #e9e9e9 !important;
+  height: 56px;
+  min-width: 136px;
+  padding: 0 23px;
+  border-radius: 12px !important;
   box-shadow: none;
-  opacity: 1;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-
-.button-text {
-  margin-left: 3px;
-  color: inherit;
-  font-size: 16px;
-  font-weight: 600;
+.guidance-link:not(.guidance-link-disabled) .guidance-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.13);
 }
-
-/* ============================================================
-   链接重置
-   ============================================================ */
-
-a {
-  color: inherit;
-  text-decoration: none;
+.guidance-link-disabled { cursor: not-allowed; }
+.guidance-button:disabled { background: #fff !important; border: 1px solid #dedede !important; color: #252a2d !important; opacity: .8; }
+.button-text { margin-left: 7px; font-size: 20px; font-weight: 650; }
+@media (max-width: 800px) {
+  .title-section { padding: 40px 22px; }
+  .paper-heading { font-size: clamp(28px, 5vw, 42px); }
+  .hero-description { margin: 22px auto 27px; line-height: 1.65; }
 }
-
-a:hover {
-  color: inherit;
-  border-bottom: none;
-}
-
-/* ============================================================
-   平板端
-   ============================================================ */
-
-@media (max-width: 1099px) {
-  .paper-title {
-    max-width: 920px;
-    padding:
-      0
-      18px;
-    box-sizing: border-box;
-  }
-}
-
-/* ============================================================
-   手机端
-   ============================================================ */
-
-@media (max-width: 768px) {
-  .title-section {
-    padding:
-      32px
-      0
-      20px;
-  }
-
-  .paper-title {
-    padding:
-      0
-      14px;
-    font-size: 30px;
-    line-height: 1.36;
-  }
-
-  .sketch-title {
-    font-size: 1.13em;
-    letter-spacing: -0.8px;
-  }
-
-  .author-name {
-    font-size: 18px;
-  }
-
-  .address-name {
-    font-size: 16px;
-  }
-
-  .guidance-row {
-    gap: 8px;
-    margin-top: 18px;
-  }
-
-  .guidance-button {
-    min-width: 104px;
-    height: 40px;
-    padding:
-      0
-      16px;
-  }
-}
-
-/* ============================================================
-   小屏手机
-   ============================================================ */
-
 @media (max-width: 480px) {
-  .paper-title {
-    font-size: 27px;
-    line-height: 1.4;
-  }
-
-  .guidance-row {
-    padding:
-      0
-      12px;
-  }
+  .title-section { padding: 36px 14px; }
+  .paper-heading { font-size: clamp(25px, 7vw, 33px); line-height: 1.3; }
+  .guidance-row { gap: 9px; }
+  .guidance-button { min-width: 105px; height: 47px; padding: 0 13px; }
+  .button-text { font-size: 14px; }
 }
 </style>
