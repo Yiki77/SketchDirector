@@ -8,6 +8,10 @@ import Footer from './components/Footer.vue'
   <div class="app-page">
 
     <el-container class="app-container">
+      
+      <el-header class="app-header">
+        <Header />
+      </el-header>
 
       <!-- Main Content -->
       <el-main class="app-main">
