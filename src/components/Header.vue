@@ -1,129 +1,135 @@
 <script lang="ts" setup>
+const projectName = 'SketchDirector'
+const paperUrl = './paper/_AAAI_27__SketchDirector.pdf'
 
-import { ElIcon } from 'element-plus'
-import { HomeFilled, SuccessFilled } from '@element-plus/icons-vue'
-
-// 个人主页
-const home = {
-    name: "My Blog",
-    link: "https://junyaohu.github.io/",
-}
-
-// 项目主页
-const logo = {
-    name: "Template",
-    link: "#",
-}
-
-// 右侧更多菜单
-const more_paper = {
-    "ExtDM": {
-        name: "ExtDM - CVPR 2024",
-        link: "https://zzcheng.top/ExtDM/",
-    },
-    "MPOT": {
-        name: "MPOT - ICCV 2023",
-        link: "https://zzcheng.top/MPOT/",
-    },
-    "ControlNet": {
-        name: "ControlNet - ICCV 2023",
-        link: "https://github.com/lllyasviel/ControlNet",
-    }
-}
-
+// Make sure the section IDs in your main page match these anchors.
+const navigation = [
+  { label: 'Overview', href: '#overview' },
+  { label: 'Method', href: '#method' },
+  { label: 'Results', href: '#results' },
+  // { label: 'Dataset', href: '#dataset' },
+]
 </script>
 
 <template>
-    <!-- 设置页首始终悬浮顶部 -->
-    <el-affix :offset="0" :style="{width: '100%'}">
-    
-    <!-- 水平导航目录 -->
-    <el-menu 
-        default-active="1"
-        class="el-menu-demo"
-        mode="horizontal"
-        :ellipsis="false"
-    >
-        <!-- 个人主页 -->
-        <el-menu-item index="0" >
-            <el-icon :size="20"><HomeFilled /></el-icon>
-            <a :href=home.link>{{ home.name }} </a>
-        </el-menu-item>
-        
-        <!-- 项目主页 -->
-        <el-menu-item index="1">
-            <el-icon :size="20"><SuccessFilled /></el-icon>
-            <a :href=logo.link>{{ logo.name }} </a>
-        </el-menu-item>
+  <header class="project-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" :aria-label="`${projectName} — back to top`">
+        {{ projectName }}
+      </a>
 
-        <!-- 更多栏目 -->
-        <el-sub-menu index="2">
-            <template #title>More</template>
-            <el-menu-item index="2-1">
-                <a :href=more_paper.ExtDM.link>{{ more_paper.ExtDM.name }}</a>
-            </el-menu-item>
-            <el-menu-item index="2-2">
-                <a :href=more_paper.MPOT.link>{{ more_paper.MPOT.name }}</a>
-            </el-menu-item>
-            <el-menu-item index="2-3">
-                <a :href=more_paper.ControlNet.link>{{ more_paper.ControlNet.name }}</a>
-            </el-menu-item>
-        </el-sub-menu>
+      <!-- All five buttons are aligned on the right and share one style. -->
+      <nav class="header-actions" aria-label="Project navigation">
+        <a
+          v-for="item in navigation"
+          :key="item.label"
+          class="pill-button"
+          :href="item.href"
+        >
+          {{ item.label }}
+        </a>
 
-    </el-menu>
-    </el-affix>
+      </nav>
+    </div>
+  </header>
 </template>
 
-<style>
-
-/* 导航背景 */
-.el-menu {
-	background: none;
-}
-
-/* 下拉菜单宽度 */
-.el-menu--popup {
-	min-width: 100%;
-}
-
-/* 导航背景特效和阴影 */
-.el-affix--fixed {
-	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-	background-image: radial-gradient(#ffffffca 1px,#ffffff 1px);
-	background-size: 3px 3px;
-}
-
-/* 水平导航高度 */
-.el-header {
-    --el-header-height: 50px;
-}
-
-</style>
-
 <style scoped>
-
-/* 水平导航左右分区 */
-.el-menu--horizontal > .el-menu-item:nth-child(2) {
-    margin-right: auto;
+.project-header {
+  width: 100%;
+  background: #faf9f7;
+  border-bottom: 1px solid #e9e8e6;
+  box-sizing: border-box;
 }
 
-/* 水平导航高度 */
-.el-menu--horizontal {
-    --el-menu-horizontal-height: 50px;
+.header-inner {
+  width: 100%;
+  min-height: 112px;
+  margin: 0 auto;
+  padding: 18px clamp(20px, 3.5vw, 72px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  box-sizing: border-box;
 }
 
-/* 取消鼠标焦点悬浮在链接上的颜色装饰 */
-a:hover {
-  color: inherit;
-  border-bottom: none;
+.brand {
+  flex-shrink: 0;
+  white-space: nowrap;
+  color: #191d20;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(23px, 2vw, 35px);
+  font-weight: 800;
+  letter-spacing: -1.45px;
+  line-height: 1.2;
+  text-decoration: none;
 }
 
-/* 链接装饰，取消下划线和链接颜色 */
-a {
-	text-decoration: None;
-	color: inherit;
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
+/* Shared button style for Overview, Method, Results, Dataset and Read paper */
+.pill-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  min-height: 54px;
+  padding: 0 22px;
+  border: 2px solid #25292b;
+  border-radius: 999px;
+  box-sizing: border-box;
+  background: transparent;
+  color: #191d20;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.pill-button:hover,
+.pill-button:focus-visible {
+  background: #191d20;
+  border-color: #191d20;
+  color: #fff;
+}
+
+.arrow { font-size: 1.12em; line-height: 1; }
+
+@media (max-width: 1180px) {
+  .header-inner { gap: 20px; padding: 18px 24px; }
+  .header-actions { gap: 8px; }
+  .pill-button { min-height: 46px; padding: 0 15px; font-size: 14px; }
+  .brand { font-size: 25px; }
+}
+
+@media (max-width: 800px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 16px;
+  }
+  .header-actions {
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-start;
+    gap: 9px;
+  }
+  .pill-button { min-height: 42px; padding: 0 14px; font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pill-button { transition: none; }
+}
 </style>
-
-  
