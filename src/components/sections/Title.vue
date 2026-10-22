@@ -45,9 +45,8 @@ const addresses: Array<{
   },
 ]
 
-
 // 共一和通讯作者提示
-const correspondingAuthorText = ''
+const correspondingAuthorText = '*Corresponding author.'
 
 // 强调内容
 const emphases: string[] = []
@@ -67,10 +66,10 @@ const buttons = [
     component: Link,
   },
   {
-    disabled: true,
+    disabled: false,
     name: 'Dataset',
-    link: '',
-    component: Files,
+    link: 'https://huggingface.co/datasets/yiki77/MCSketch8K',
+    component: Link,
   },
 ]
 </script>
