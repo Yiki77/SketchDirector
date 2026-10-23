@@ -844,17 +844,6 @@ const handleKeydown = (
               </div>
 
 
-
-              <p class="result-caption">
-
-                <strong>Impact of different VLM backbones.</strong>
-
-                We compare the sketch verification quality and convergence
-
-                efficiency of SketchDirector using different VLM backbones.
-
-              </p>
-
             </div>
 
 
