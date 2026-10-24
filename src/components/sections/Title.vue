@@ -9,7 +9,7 @@ import {
 const projectName = 'SketchDirector'
 
 // 论文标题
-const titleLead = 'Complex Sketching via'
+const titleLead = 'Complex Scene Sketching via'
 const titleHighlight = 'Agentic Layout Reasoning'
 const titleEnd = 'and Detail Refinement'
 
