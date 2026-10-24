@@ -62,8 +62,14 @@ const buttons = [
   },
   {
     disabled: true,
-    name: 'Code',
+    name: 'Arxiv',
     link: '',
+    component: Link,
+  },
+  {
+    disabled: false,
+    name: 'Code',
+    link: 'https://github.com/GVCLab/SketchDirector/tree/main',
     component: Link,
   },
   {
