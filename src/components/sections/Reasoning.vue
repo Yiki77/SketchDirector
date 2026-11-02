@@ -81,14 +81,10 @@ function onVideoKeydown(event: KeyboardEvent) {
 
     <div class="reasoning-content">
       <p class="reasoning-desc">
-        SketchDirector organizes independently generated sketch assets through a closed-loop Plan–Execute–Verify–Correct process. Rather than predicting the entire scene layout at once, the agent generates executable object-level operations, evaluates the resulting composition through geometric and visual-semantic verification, and iteratively corrects layout errors with guidance from self-evolving memory.  
+        SketchDirector organizes independently generated sketch assets through a closed-loop Plan–Execute–Verify–Correct process. 
       </p>
 
       <h3 class="reasoning-subheading">Plan &amp; Execution</h3>
-
-      <p class="reasoning-desc">
-        SketchDirector translates spatial intentions into executable programs using six primitive operations: move, scale, rotate, layer, delete, and modify. By sequentially executing these operations, SketchDirector updates object attributes and scene states, producing an interpretable and traceable layout construction process.  
-      </p>
 
       <div class="video-carousel">
         <!-- Arrows are placed at the left/right edges of the video, not below it. -->
@@ -162,9 +158,7 @@ function onVideoKeydown(event: KeyboardEvent) {
 
       <section class="verification-section" aria-labelledby="verification-title">
         <h3 id="verification-title" class="reasoning-subheading">Multimodal Verification</h3>
-        <p class="reasoning-desc">
-          SketchDirector combines geometric verification with visual-semantic evaluation to assess each generated layout. Geometric checks enforce canvas boundaries and reasonable object scales, while a vision-language model evaluates semantic alignment, spatial composition, object completeness, visual aesthetics, and size consistency. Layouts that fail verification are returned to the agent for correction.
-        </p>
+        
         <img
           class="verification-image"
           :src="verificationImageSrc"
@@ -175,9 +169,7 @@ function onVideoKeydown(event: KeyboardEvent) {
 
       <section class="correction-section" aria-labelledby="correction-title">
         <h3 id="correction-title" class="reasoning-subheading">Self-Evolving Correction</h3>
-        <p class="reasoning-desc">
-          SketchDirector introduces a hierarchical self-evolving memory mechanism to guide iterative layout correction. Short-Term Failure Memory records unsuccessful reasoning trajectories and their verification feedback to support immediate revisions, while Long-Term Experience Memory retrieves reusable composition strategies from previously successful scenes. Together, they enable the agent to learn from failures and accumulated experiences during layout reasoning.  
-        </p>
+       
         <img
           class="correction-image"
           :src="correctionImageSrc"
