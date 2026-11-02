@@ -1276,12 +1276,20 @@ const getRowClassName = (
   padding-left: 12px;
   text-align: left;
 }
-.comparison-table :deep(.SketchDirector-row td.el-table__cell) { background: #f7f5fd; }
-.comparison-table :deep(.SketchDirector-refine-row td.el-table__cell) { background: #eeeaf9; }
+.comparison-table :deep(.SketchDirector-row td.el-table__cell) {
+  background-color: #EDE7F6 !important;
+}
+.comparison-table :deep(.SketchDirector-refine-row td.el-table__cell) {
+  background-color: #D1C4E9 !important;
+}
 .comparison-table :deep(.SketchDirector-row td.el-table__cell:first-child),
 .comparison-table :deep(.SketchDirector-refine-row td.el-table__cell:first-child) { font-weight: 700; }
-.comparison-table :deep(.SketchDirector-row:hover td.el-table__cell),
-.comparison-table :deep(.SketchDirector-refine-row:hover td.el-table__cell) { background: #e9e4f8; }
+.comparison-table :deep(.SketchDirector-row:hover td.el-table__cell) {
+  background-color: #E1D5F2 !important;
+}
+.comparison-table :deep(.SketchDirector-refine-row:hover td.el-table__cell) {
+  background-color: #BBA6DF !important;
+}
 .best-value { color: #51439d; font-weight: 800; }
 /* Qualitative image and user-study image remain in their original positions. */
 .qualitative-card, .userstudy-image-card {
