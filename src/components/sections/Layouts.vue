@@ -80,7 +80,7 @@ function handleDifferentKeydown(event: KeyboardEvent) {
           </span>
         </div>
         <h1 class="layout-main-title">Diverse Layouts</h1>
-        <p class="layout-main-description">SketchDirector supports diverse scene compositions through flexible object-level manipulation. Given the same textual description, the agent can generate alternative spatial arrangements of identical sketch assets or compose scenes using different object representations, demonstrating the flexibility of executable layout reasoning.</p>
+        <p class="layout-main-description">SketchDirector supports diverse scene compositions through flexible object-level manipulation.</p>
 
       </section>
       <div class="stacked-layout-gallery">
@@ -89,9 +89,6 @@ function handleDifferentKeydown(event: KeyboardEvent) {
         <h2 class="section-heading-label">Diverse layouts with the same objects</h2>
 
       </div>
-      <p class="comparison-helper">
-          Using the same set of vector assets, SketchDirector generates multiple compositions by varying object positions, scales, and spatial relationships while preserving their individual representations.
-      </p>
       <div class="example-content">
         <div class="example-caption-area">
           <div class="example-heading-row">
@@ -144,9 +141,6 @@ function handleDifferentKeydown(event: KeyboardEvent) {
       <div class="section-heading">
         <h2 class="section-heading-label">Diverse layouts with the different objects</h2>
       </div>
-      <p class="comparison-helper">
-        Given the same scene description, SketchDirector can compose different object drafts into distinct layouts, producing diverse visual interpretations while maintaining the intended scene semantics.    
-      </p>
       <div class="example-content">
         <div class="example-caption-area">
           <div class="example-heading-row">
