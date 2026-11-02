@@ -698,12 +698,6 @@ const getRowClassName = (
 
           </div>
 
-          <p class="comparison-helper">
-
-            We evaluate scene sketch quality across five dimensions using four independent vision-language models. 
-
-          </p>
-
           <div class="comparison-card">
 <!-- Evaluator tabs -->
             <div class="evaluator-header">
