@@ -702,8 +702,7 @@ const handleKeydown = (
 
           <p class="ablation-main-description">
 
-            We conduct ablation studies to investigate the contributions of different VLM backbones, agentic reasoning components, and detail refinement strategies. Through quantitative and visual comparisons, we examine their effects on scene quality, spatial coherence, and reasoning efficiency.
-
+            We conduct ablation studies to investigate the contributions of VLM backbones, agentic reasoning components, and detail refinement.
           </p>
 
 
@@ -760,10 +759,6 @@ const handleKeydown = (
               <span class="section-heading-line" />
 
             </div>
-
-            <p class="comparison-helper">
-              We evaluate SketchDirector with four VLM backbones to examine their influence on scene sketch generation. OpenAI GPT-5.5 achieves the strongest overall verification performance and requires the fewest reasoning iterations. Gemini-3.1-Pro and Claude-Opus-4-7 also capture major scene concepts, but generally produce fewer visual details, while Qwen3.7-Plus requires more iterations and achieves lower layout verification scores.  
-            </p>
 
 
 
@@ -1056,10 +1051,6 @@ const handleKeydown = (
 
             </div>
 
-            <p class="comparison-helper">
-              We investigate the contributions of planning, geometric verification, visual-semantic verification, and self-evolving memory. Removing planning substantially degrades spatial organization, while disabling verification leads to geometric violations or semantic inconsistencies. Removing memory components further weakens layout quality and reasoning efficiency. These results demonstrate the complementary roles of the individual components in reliable scene composition.  
-            </p>
-
             <div class="result-area">
 
               <div class="minor-title">
@@ -1347,10 +1338,6 @@ const handleKeydown = (
               <span class="section-heading-line" />
 
             </div>
-
-            <p class="comparison-helper">
-              We investigate the effectiveness of curve contour resampling and progressive joint optimization in structure-aware refinement. Compared with point-based resampling, our contour-preserving approach maintains object geometry and provides a stable initialization for refinement. Furthermore, combining object-level and scene-level supervision through progressive optimization enhances sketch details while preserving object structures and spatial coherence.  
-            </p>
 
 
 
