@@ -50,9 +50,7 @@ const instancePrompt =
           <h1 class="limitations-main-title">
             Limitations
           </h1>
-          <p class="limitations-main-description">
-            Although SketchDirector produces editable and spatially coherent multi-concept scene sketches, several challenges remain in modeling complex interactions, maintaining instance consistency during refinement, and reducing computational overhead.
-          </p>
+        
         </section>
         <!-- ================================================== -->
         <!-- One-row limitations -->
