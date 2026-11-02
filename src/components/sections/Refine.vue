@@ -31,7 +31,7 @@ const refineImageSrc = computed(() => {
 
     <div class="refine-content">
       <p class="refine-desc">
-        SketchDirector enhances coarse scene drafts through structure-aware detail refinement. Curve contour resampling first converts object outlines into fixed-topology Bézier primitives, preserving their original geometry. Progressive joint optimization then refines individual objects under both object-level and scene-level supervision, improving visual details.  
+        SketchDirector enhances coarse scene drafts through detail refinement.
       </p>
 
       <img
