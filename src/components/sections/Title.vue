@@ -61,9 +61,9 @@ const buttons = [
     component: Document,
   },
   {
-    disabled: true,
+    disabled: false,
     name: 'Arxiv',
-    link: '',
+    link: 'https://arxiv.org/abs/2610.41260',
     component: Link,
   },
   {
