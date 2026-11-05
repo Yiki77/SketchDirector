@@ -12,6 +12,8 @@ import {
   Refresh,
   RefreshLeft,
   RefreshRight,
+  SortDown,
+  SortUp,
   ZoomIn,
   ZoomOut
 } from '@element-plus/icons-vue'
@@ -56,6 +58,7 @@ interface GalleryItem extends GalleryConfig {
   selectedKey: string | null
 
   draftExpanded: boolean
+  layerRevision: number
 }
 
 
@@ -1320,6 +1323,102 @@ const getObjectElement = (
 
 
 // ============================================================
+
+// Object layer order (SVG paints later siblings on top)
+
+// ============================================================
+
+type LayerDirection = -1 | 1
+
+// Save the exact original child-node order, including non-object
+// elements, so Reset restores the SVG without altering its geometry.
+const initialLayerOrders =
+  new WeakMap<GalleryItem, Map<Element, Node[]>>()
+
+const captureInitialLayerOrder = (
+  item: GalleryItem
+) => {
+  const host = getSvgHost(item)
+  const snapshots = new Map<Element, Node[]>()
+
+  host?.querySelectorAll<SVGGElement>(
+    '.editable-object-wrapper'
+  ).forEach((element) => {
+    const parent = element.parentElement
+    if (parent && !snapshots.has(parent)) {
+      snapshots.set(parent, Array.from(parent.childNodes))
+    }
+  })
+
+  initialLayerOrders.set(item, snapshots)
+}
+
+const getAdjacentLayerObject = (
+  item: GalleryItem,
+  direction: LayerDirection
+) => {
+  const selected = getSelectedObject(item)
+  if (!selected) return null
+
+  const element = getObjectElement(item, selected.key)
+  const parent = element?.parentElement
+  if (!element || !parent) return null
+
+  // Only reorder independent object wrappers sharing the same
+  // SVG parent; reparenting nested SVG groups can change transforms.
+  const siblings = Array.from(parent.children).filter(
+    (child): child is SVGGElement =>
+      child instanceof SVGGElement
+      && child.classList.contains('editable-object-wrapper')
+  )
+
+  const index = siblings.indexOf(element)
+  const adjacent = siblings[index + direction]
+  if (index < 0 || !adjacent) return null
+
+  return { element, adjacent }
+}
+
+const canMoveLayer = (
+  item: GalleryItem,
+  direction: LayerDirection
+) => {
+  // Read reactive revision to update button disabled states after
+  // changing the SVG DOM order directly.
+  void item.layerRevision
+  return getAdjacentLayerObject(item, direction) !== null
+}
+
+const moveSelectedLayer = (
+  item: GalleryItem,
+  direction: LayerDirection
+) => {
+  const pair = getAdjacentLayerObject(item, direction)
+  if (!pair) return
+
+  if (direction === 1) {
+    // Later in SVG DOM = rendered in front.
+    pair.adjacent.after(pair.element)
+  } else {
+    // Earlier in SVG DOM = rendered behind.
+    pair.adjacent.before(pair.element)
+  }
+
+  item.layerRevision += 1
+  updateSelectionClass(item)
+}
+
+const restoreInitialLayerOrder = (
+  item: GalleryItem
+) => {
+  const snapshots = initialLayerOrders.get(item)
+  snapshots?.forEach((nodes, parent) => {
+    nodes.forEach((node) => parent.appendChild(node))
+  })
+  item.layerRevision += 1
+}
+
+// ============================================================
 // Object center
 // ============================================================
 
@@ -2357,6 +2456,7 @@ const resetScene = (
     item
   )
 
+  restoreInitialLayerOrder(item)
 
   clearSelection(
     item
@@ -2541,6 +2641,8 @@ const loadGalleryItem = async (
 
     await nextTick()
 
+    captureInitialLayerOrder(item)
+
     await waitForNextFrame()
 
     await waitForNextFrame()
@@ -2671,7 +2773,8 @@ const loadManifest = async () => {
           svgMarkup: '',
           objects: [],
           selectedKey: null,
-          draftExpanded: false
+          draftExpanded: false,
+          layerRevision: 0
         } satisfies GalleryItem
 
       })
@@ -2952,6 +3055,34 @@ onBeforeUnmount(() => {
                     </el-icon>
                   </el-button>
 
+
+                  <!-- Move selected object one layer forward -->
+                  <el-button
+                    circle
+                    size="small"
+                    title="Bring forward one layer"
+                    aria-label="Bring forward one layer"
+                    :disabled="!canMoveLayer(item, 1)"
+                    @click="moveSelectedLayer(item, 1)"
+                  >
+                    <el-icon>
+                      <SortUp />
+                    </el-icon>
+                  </el-button>
+
+                  <!-- Move selected object one layer backward -->
+                  <el-button
+                    circle
+                    size="small"
+                    title="Send backward one layer"
+                    aria-label="Send backward one layer"
+                    :disabled="!canMoveLayer(item, -1)"
+                    @click="moveSelectedLayer(item, -1)"
+                  >
+                    <el-icon>
+                      <SortDown />
+                    </el-icon>
+                  </el-button>
 
                   <el-button
                     circle
