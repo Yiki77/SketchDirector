@@ -342,7 +342,7 @@ const getRowClassName = (row: ComparisonRow): string => {
             Comparison
           </h1>
           <p class="comparison-desc">
-            We evaluate SketchDirector against representative LLM-based and optimization-based sketch generation methods through quantitative assessments, visual comparisons, and a human preference study. The results demonstrate improvements in scene composition, object completeness, and visual quality.
+            We evaluate SketchDirector against representative LLM-based and optimization-based sketch generation methods through quantitative assessments, visual comparisons, and a human preference study.
           </p>
         </section>
 <!-- ================================================== --><!-- Quantitative comparison --><!-- ================================================== -->
@@ -354,7 +354,7 @@ const getRowClassName = (row: ComparisonRow): string => {
             <span class="comparison-section-heading-line" />
           </div>
           <p class="comparison-helper">
-            We evaluate scene sketch quality across five dimensions using four independent vision-language models. SketchDirector achieves the highest average scores across all five metrics.
+            We evaluate scene sketch quality across five dimensions using four independent vision-language models.
           </p>
           <div class="comparison-card">
 <!-- Evaluator tabs -->
@@ -424,7 +424,7 @@ const getRowClassName = (row: ComparisonRow): string => {
             <span class="comparison-section-heading-line" />
           </div>
           <p class="comparison-helper">
-            Compared with LLM-based methods, SketchDirector produces clearer object organization and more coherent spatial arrangements. Compared with optimization-based methods, it better preserves object boundaries and scene layouts.
+            For fairness, we compared with LLM-based methods and optimization-based methods.
           </p>
           <div class="qualitative-card">
             <img
@@ -442,7 +442,7 @@ const getRowClassName = (row: ComparisonRow): string => {
             <span class="comparison-section-heading-line" />
           </div>
           <p class="comparison-helper">
-              We conduct a user study with 68 participants to assess object completeness, layout alignment, and visual aesthetics. Participants compare SketchDirector with LLM-based baselines and its refined results with optimization-based baselines. Across all three criteria, participants consistently prefer SketchDirector, supporting its effectiveness in producing coherent and visually appealing scene sketches.
+              We conduct a user study with 68 participants to assess object completeness, layout alignment, and visual aesthetics. 
           </p>
           <div class="userstudy-image-card">
             <video
