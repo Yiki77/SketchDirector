@@ -25,6 +25,9 @@ type MetricKey =
   | 'sizeConsistency'
 // ============================================================// Evaluator// ============================================================
 const activeTab = ref<EvaluatorKey>('qwen')
+
+// Video in public/videos/, works with local dev and GitHub Pages base path.
+const userStudyVideo = `${import.meta.env.BASE_URL}videos/user_study.mp4`
 // ============================================================// Qwen3.7-Plus evaluation// ============================================================
 const qwenData: ComparisonRow[] = [
   {
@@ -442,10 +445,16 @@ const getRowClassName = (row: ComparisonRow): string => {
               We conduct a user study with 68 participants to assess object completeness, layout alignment, and visual aesthetics. Participants compare SketchDirector with LLM-based baselines and its refined results with optimization-based baselines. Across all three criteria, participants consistently prefer SketchDirector, supporting its effectiveness in producing coherent and visually appealing scene sketches.
           </p>
           <div class="userstudy-image-card">
-            <img
-              src="/user_study.jpg"
-              alt="User study results"
-            />
+            <video
+              class="userstudy-video"
+              :src="userStudyVideo"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              aria-label="User study results animation"
+            ></video>
           </div>
         </section>
       </el-col>
@@ -653,7 +662,6 @@ const getRowClassName = (row: ComparisonRow): string => {
   text-align: left;
 }
 .comparison-table .cell-content { display: inline-block; }
-
 /* SketchDirector: purple, matching the project theme. */
 .comparison-table tbody .SketchDirector-row td {
   background: #efe9ff;
@@ -670,7 +678,6 @@ const getRowClassName = (row: ComparisonRow): string => {
 .comparison-table tbody tr.SketchDirector-refine-row:hover td { background: #d2bdff; }
 .comparison-table .best-value { color: #51339b; font-weight: 800; }
 .comparison-table .SketchDirector-refine-row .best-value { color: #3e1a85; }
-
 /* Qualitative image and user-study image remain in their original positions. */
 .qualitative-card, .userstudy-image-card {
   width: 100%;
@@ -690,6 +697,18 @@ const getRowClassName = (row: ComparisonRow): string => {
   margin: 0;
   object-fit: contain;
 }
+/* The user study animation fills its card without cropping or distortion. */
+.userstudy-video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  object-fit: contain;
+  background: #fff;
+}
+
+
 .userstudy-desc {
   margin: 24px 0 0;
   color: #62666a;
